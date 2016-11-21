@@ -7,7 +7,6 @@ class Samochod
         $this->rokProdukcji = $rokProdukcji;
         $this->kolor=$kolor;
     }
-
     public function __getRokProdukcji()
     {
         return $this->rokProdukcji;
@@ -24,11 +23,28 @@ class Samochod
     {
         $this->kolor = $kolor;
     }
+    public function info()
+    {
+        return 'rok:' .$this->rokProdukcji . ' kolor: ' . $this->kolor;
+    }
+}
+class Informacje
+{
+    public function __construct($samochod)
+    {
+        $this->samochod = $samochod;
+    }
+    public function renderCar(){
 
+        return 'Samochod: rok: ' . Samochod::
+    }
 }
 
-$ferrari = new Samochod('6000',2010);
+$ferrari = new Samochod(6000,2010);
 
 
 $ferrari->setRokProdukcji(2016);
-echo 'Ferrari: rok produkcji: '.$ferrari->getRokProdukcji().' kolor: '.$ferrari->getKolor().'.';
+echo $ferrari->info();
+
+$lamborghini = new Samochod(7000, 2015,'żółty');
+echo $lamborghini->info();
